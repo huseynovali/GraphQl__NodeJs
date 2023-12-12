@@ -4,7 +4,12 @@ export const GET_Users = gql`
   query GetUser {
     getUsers {
       username
-      email
+      email,
+      videos {
+        title
+        description
+      }
+      
     }
   }
 `;
