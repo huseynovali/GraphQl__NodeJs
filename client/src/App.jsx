@@ -1,15 +1,17 @@
-import { useQuery } from "@apollo/client";
-import { GET_Users } from "./querys";
+
+import Home from "./Home";
+import Detail from "./Detail";
+import { Route, Router, Routes } from "react-router";
 
 function App() {
- const { loading, error, data } = useQuery(GET_Users);
-
-    if (loading) return <p>Loading...</p>;
-    if (error) return <p>Error : {error.message}</p>;
-  console.log(data);
-   
-return <></>
-  
+  return (
+    <div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/:id" element={<Detail />} />
+      </Routes>
+    </div>
+  );
 }
 
-export default App
+export default App;

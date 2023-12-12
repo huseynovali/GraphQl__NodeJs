@@ -5,9 +5,9 @@ module.exports = gql`
 type Video {
     title: String
     description: String
-   
   }
   type User {
+    _id:String,
     username: String
     email: String
    videos:[Video]
