@@ -1,5 +1,10 @@
 let express = require('express');
 const db_connect = require('./config/dbConnect');
+const { ApolloServer } = require('@apollo/server');
+const typeDefs = require('./graphql/typeQuery/typeDefs.js');
+const resolvers = require('./graphql/resolvers/User.js')
+const { startStandaloneServer } =require('@apollo/server/standalone') ;
+
 require('dotenv').config()
 let app = express();
 
@@ -11,11 +16,11 @@ const PORT = process.env.PORT
 db_connect()
 
 
+let server = new ApolloServer({typeDefs,resolvers})
 
-
-
-app.listen(PORT, () => console.log(`${PORT} listen !!`))
-
+startStandaloneServer(server, {
+    listen: { port: 4000 },
+  });
 
 
 
