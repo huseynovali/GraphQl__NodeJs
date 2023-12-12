@@ -1,17 +1,16 @@
-import { useQuery } from '@apollo/client';
-import React from 'react'
-import { useParams } from 'react-router';
+import { useQuery } from "@apollo/client";
+import React from "react";
+import { useParams } from "react-router";
+import { GET_User } from "./querys";
 
 function Detail() {
+  let { id } = useParams();
 
-    let {id} = useParams();
-    const { loading, error, data } = useQuery(GET_Users,{
-        variables:{userId:id}
-    });
-    console.log(data);
-  return (
-    <div>Detail</div>
-  )
+  const { loading, error, data } = useQuery(GET_User, {
+    variables: { userId: id },
+  });
+  console.log(data);
+  return <div>Detail</div>;
 }
 
-export default Detail
+export default Detail;
