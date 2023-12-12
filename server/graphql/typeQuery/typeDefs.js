@@ -16,6 +16,14 @@ module.exports = gql`
     getUsers: [User]
     getUserById(userId: ID): User
   }
+input Input{
+  username:String,
+  email:String
+}
+
+type Mutation{
+createUser(body:Input):User
+}
 
 
 `;

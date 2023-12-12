@@ -16,14 +16,21 @@ export const GET_User = gql`
       _id
       username
       email
-      videos 
-        {
-          title
-          description
-        }
-       
-   
-      
+      videos {
+        title
+        description
+      }
+    }
+  }
+`;
+
+
+export const CREATE_USER = gql`
+  mutation CreateUser($body: Input) {
+    createUser(body: $body) {
+      _id
+      username
+      email
     }
   }
 `;

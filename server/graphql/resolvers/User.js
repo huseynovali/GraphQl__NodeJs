@@ -21,4 +21,21 @@ module.exports = {
       }
     },
   },
+  Mutation: {
+    createUser: async (_, { body }) => {
+      const { username, email } = body;
+      try {
+        const newUser = new UserModel({
+          username,
+          email,
+        });
+
+        await newUser.save();
+
+        return newUser;
+      } catch (error) {
+        console.log(error);
+      }
+    },
+  },
 };
