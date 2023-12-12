@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 
-const videoSchema = mongoose.Schema({
+// Video Şeması
+const VideoSchema = mongoose.Schema({
     title: {
         type: String,
         required: true
@@ -9,26 +10,9 @@ const videoSchema = mongoose.Schema({
         type: String,
         required: true
     },
+});
 
+// Video Modeli
+const VideoModel = mongoose.model('Video', VideoSchema);
 
-    videoawsid: {
-        type: String
-    },
-    coverImageid: {
-        type: String
-    },
-    uploadDate: {
-        type: String,
-    },
- 
-    price: {
-        type: String
-    },
-
-
-
-})
-
-const Video = mongoose.model("Video", videoSchema)
-
-module.exports = Video
+module.exports = VideoModel;

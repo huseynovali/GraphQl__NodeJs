@@ -11,11 +11,19 @@ export const GET_Users = gql`
 `;
 
 export const GET_User = gql`
-  query GetUser($userId:ID) {
+  query GetUser($userId: ID) {
     getUserById(userId: $userId) {
       _id
       username
       email
+      videos 
+        {
+          title
+          description
+        }
+       
+   
+      
     }
   }
 `;

@@ -1,11 +1,12 @@
-const User = require("../../models/UswerSchema");
+const VideoModel = require("../../models/VideosSchema");
+const UserModel = require("../../models/UserSchema");
 
 module.exports = {
   Query: {
     getUsers: async () => {
       try {
-        let users = await User.find();
-     
+        let users = await UserModel.find();
+
         return users;
       } catch (error) {
         console.log(error);
@@ -13,8 +14,7 @@ module.exports = {
     },
     getUserById: async (_, { userId }) => {
       try {
-        let user = await User.findById(userId);
-        console.log(userId);
+        const user = await UserModel.findById(userId).populate("videos");
         return user;
       } catch (error) {
         console.log(error);

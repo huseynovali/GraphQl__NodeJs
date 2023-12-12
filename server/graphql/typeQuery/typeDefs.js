@@ -16,4 +16,6 @@ module.exports = gql`
     getUsers: [User]
     getUserById(userId: ID): User
   }
+
+
 `;
