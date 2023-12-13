@@ -15,10 +15,10 @@ function RegisterPage() {
         variables: { body: { username, email } },
       });
 
-      console.log('Yeni kullanıcı oluşturuldu:', data.createUser);
-      // Diğer işlemleri burada gerçekleştirebilirsiniz, örneğin kullanıcıyı yönlendirebilirsiniz.
+      console.log('Create new user:', data.createUser);
+
     } catch (error) {
-      console.error('Kullanıcı oluşturulamadı:', error.message);
+      console.error('dont create user:', error.message);
     }
   };
 
@@ -26,14 +26,14 @@ function RegisterPage() {
     <div>
       <h2>RegisterPage</h2>
       <label>
-        Kullanıcı Adı:
+        User Name:
         <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
       </label>
       <label>
-        E-posta:
+        E-Mail:
         <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
       </label>
-      <button onClick={handleRegister}>Kayıt Ol</button>
+      <button onClick={handleRegister}>Sign Up</button>
     </div>
   );
 }

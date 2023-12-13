@@ -37,5 +37,29 @@ module.exports = {
         console.log(error);
       }
     },
+
+    updateUser: async (_, { userId, updateInput }) => {
+      try {
+        const user = await UserModel.findById(userId);
+
+        if (!user) {
+          throw new Error("user not found.");
+        }
+
+        if (updateInput.username) {
+          user.username = updateInput.username;
+        }
+        if (updateInput.email) {
+          user.email = updateInput.email;
+        }
+
+        await user.save();
+
+        return user;
+      } catch (error) {
+        console.error(error);
+        throw new Error("user dont Update.");
+      }
+    },
   },
 };
