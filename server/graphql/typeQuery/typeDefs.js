@@ -29,5 +29,6 @@ module.exports = gql`
   type Mutation {
     createUser(body: Input): User
     updateUser(userId: ID!, updateInput: UpdateUserInput!): User
+    deleteUser(userId: ID!): User
   }
 `;

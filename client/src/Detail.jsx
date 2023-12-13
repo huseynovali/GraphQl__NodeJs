@@ -9,7 +9,7 @@ function Detail() {
   const { loading, error, data } = useQuery(GET_User, {
     variables: { userId: id },
   });
-  console.log(data);
+
   return <div>Detail</div>;
 }
 

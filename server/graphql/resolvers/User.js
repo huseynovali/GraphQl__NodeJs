@@ -61,5 +61,19 @@ module.exports = {
         throw new Error("user dont Update.");
       }
     },
+    deleteUser: async (_, { userId }) => {
+      try {
+        const deletedUser = await UserModel.findByIdAndDelete(userId);
+      
+        if (!deletedUser) {
+          throw new Error("User Not Found.");
+        }
+
+        return deletedUser;
+      } catch (error) {
+        console.error(error);
+        throw new Error("User dont deleted.");
+      }
+    },
   },
 };
